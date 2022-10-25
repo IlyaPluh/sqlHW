@@ -453,12 +453,48 @@ where role_title like '%QA%' ;
  
  25. Вывести количество QA инженеров
  
- 
+select count(role_title)
+from employees 
+join roles_employee
+on employees.id = employee_id
+join roles
+on roles.id = role_id
+where role_title like '%QA%';
  
  26. Вывести количество Middle специалистов.
+ 
+select count(role_title)
+from employees 
+join roles_employee
+on employees.id = employee_id
+join roles
+on roles.id = role_id
+where role_title like '%Middle%'; 
+ 
  27. Вывести количество разработчиков
+ 
+select count(role_title)
+from employees 
+join roles_employee
+on employees.id = employee_id
+join roles
+on roles.id = role_id
+where role_title like '%developer%';  
+ 
  28. Вывести фонд (сумму) зарплаты разработчиков.
+ 
+select sum(monthly_salary)
+from roles 
+join roles_salary
+on roles.id = id_role
+join salary
+on salary.id = id_salary
+where role_title like '%developer%' ; 
+ 
  29. Вывести имена, должности и ЗП всех специалистов по возрастанию
+ 
+
+ 
  30. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП от 1700 до 2300
  31. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП меньше 2300
  32. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП равна 1100, 1500, 2000
