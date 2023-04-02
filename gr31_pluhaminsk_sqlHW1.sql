@@ -569,3 +569,35 @@ select employees.employee_name, salary.monthly_salary, roles.role_title
  left join salary on employee_salary.salary_id = salary.id
  where salary.monthly_salary = 1100 or salary.monthly_salary = 1500 or salary.monthly_salary = 2100
  ORDER BY salary.monthly_salary
+ 
+ select * from users
+ 
+ select email, registration_date::date from users
+ 
+ create table users(
+ id serial primary key,
+ email varchar(255) not null,
+ password_field varchar(32) not null,
+ phone varchar(32),
+ registration_date timestamptz default now()
+ );
+
+alter table users 
+add column user_name varchar(255)
+
+update users 
+set user_name = 'Sasa Sa'
+where email = 'qqq@gmail.com'
+
+alter table users 
+alter column user_name set not null
+
+insert into users(email, password_field, phone, user_name)
+values('qqq@gmail.com', 'hgT56mm', '+333333333333', 'Alex Axe') 
+
+drop table users;
+
+truncate users;
+
+delete from users;
+
